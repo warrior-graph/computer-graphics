@@ -20,4 +20,8 @@ $ make
 $ ./opengl_exercise
 ```
 
+## Example of output
+
+![alt text](https://raw.githubusercontent.com/warrior-graph/computer-graphics/master/screenshot.png)
+
 
