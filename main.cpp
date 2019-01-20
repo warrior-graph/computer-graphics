@@ -54,36 +54,7 @@ void Square(double x, double y, double side);
  * @brief Draw all shapes on a glViewport
  *
  */
-void Draw()
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glViewport(0, kHeigth * .5, kWidth * .5, kHeigth * .5);
-    Triangle(0, 250, kWidth);
-
-    glViewport(kWidth * .5, kHeigth * .5, kWidth * .5, kHeigth * .5);
-    Rhombus(kWidth, kHeigth);
-
-    glScissor(0, 0, kWidth * .5, kHeigth * .5);
-    glEnable(GL_SCISSOR_TEST);
-    glViewport(0, 0, kWidth * .5, kHeigth * .5);
-    glClearColor(std::get<0>(kGreenTuple), std::get<1>(kGreenTuple),
-                 std::get<2>(kGreenTuple), 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    Line(250, 0, 250 + kWidth / 3, 250 + kHeigth / 4, kRedTuple, kBlueTuple);
-    Line(250 + kWidth / 3, 250 + kHeigth / 4, kWidth / 4, kHeigth / 2.5,
-         kBlueTuple, kWhiteTuple);
-
-    glScissor(kWidth * .5, 0, kWidth * .5, kHeigth * .5);
-    glEnable(GL_SCISSOR_TEST);
-    glViewport(kWidth * .5, 0, kWidth * .5, kHeigth * .5);
-    glClearColor(std::get<0>(kWhiteTuple), std::get<1>(kWhiteTuple),
-                 std::get<2>(kWhiteTuple), 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    Square(250, 500, 250);
-
-    glFlush();
-}
+void Draw();
 
 /**
  * @brief Initialize rendering parameters
@@ -159,6 +130,37 @@ void Square(double x, double y, double side)
               std::get<2>(kRedTuple));
     glVertex2d(x, y - side);
     glEnd();
+}
+
+void Draw()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glViewport(0, kHeigth * .5, kWidth * .5, kHeigth * .5);
+    Triangle(0, 250, kWidth);
+
+    glViewport(kWidth * .5, kHeigth * .5, kWidth * .5, kHeigth * .5);
+    Rhombus(kWidth, kHeigth);
+
+    glScissor(0, 0, kWidth * .5, kHeigth * .5);
+    glEnable(GL_SCISSOR_TEST);
+    glViewport(0, 0, kWidth * .5, kHeigth * .5);
+    glClearColor(std::get<0>(kGreenTuple), std::get<1>(kGreenTuple),
+                 std::get<2>(kGreenTuple), 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    Line(250, 0, 250 + kWidth / 3, 250 + kHeigth / 4, kRedTuple, kBlueTuple);
+    Line(250 + kWidth / 3, 250 + kHeigth / 4, kWidth / 4, kHeigth / 2.5,
+         kBlueTuple, kWhiteTuple);
+
+    glScissor(kWidth * .5, 0, kWidth * .5, kHeigth * .5);
+    glEnable(GL_SCISSOR_TEST);
+    glViewport(kWidth * .5, 0, kWidth * .5, kHeigth * .5);
+    glClearColor(std::get<0>(kWhiteTuple), std::get<1>(kWhiteTuple),
+                 std::get<2>(kWhiteTuple), 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    Square(250, 500, 250);
+
+    glFlush();
 }
 
 void Initialize()
